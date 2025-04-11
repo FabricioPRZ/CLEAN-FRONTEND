@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { observer } from "mobx-react";
+import { Link } from "react-router-dom";
 import "./JutsuForm.css";
 
 const JutsuForm = observer(({ viewModel }) => {
   useEffect(() => {
-    // Obtener los jutsus al cargar el componente
     viewModel.fetchJutsus();
   }, [viewModel]);
 
@@ -56,6 +56,10 @@ const JutsuForm = observer(({ viewModel }) => {
         {viewModel.error && <p className="jutsu-error">{viewModel.error}</p>}
         {viewModel.isValid && <p className="jutsu-success">Jutsu guardado exitosamente!</p>}
       </form>
+
+      <div className="navigation-container">
+        <Link to="/shinobi-form" className="navigation-button">Ir al Formulario de Shinobi</Link>
+      </div>
 
       {/* Muestra la lista de jutsus obtenidos del back */}
       <div className="jutsu-list-container">

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { observer } from "mobx-react";
+import { Link } from "react-router-dom";
 import "./ShinobiForm.css";
 
 const ShinobiForm = observer(({ viewModel }) => {
@@ -55,6 +56,10 @@ const ShinobiForm = observer(({ viewModel }) => {
         {viewModel.error && <p className="shinobi-error">{viewModel.error}</p>}
         {viewModel.isValid && <p className="shinobi-success">Shinobi guardado exitosamente!</p>}
       </form>
+
+      <div className="navigation-container">
+        <Link to="/jutsu-form" className="navigation-button">Ir al Formulario de Jutsu</Link>
+      </div>
 
       {/* Mostrar la lista de shinobis obtenidos del back*/}
       <div className="shinobi-list-container">

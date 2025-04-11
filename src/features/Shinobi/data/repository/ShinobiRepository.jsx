@@ -12,7 +12,7 @@ export class ShinobiRepository {
       shinobiData.special_hability
     );
 
-    const response = await fetch("http://100.29.19.172:8080/v1/shinobis", {
+    const response = await fetch("http://localhost:8080/v1/shinobis", {
       method: "POST",
       body: JSON.stringify({
         name: shinobi.name,
@@ -35,7 +35,7 @@ export class ShinobiRepository {
 
   async getAll() {
     try {
-      const response = await fetch("http://100.29.19.172:8080/v1/shinobis", {
+      const response = await fetch("http://localhost:8080/v1/shinobis", {
         method: "GET",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

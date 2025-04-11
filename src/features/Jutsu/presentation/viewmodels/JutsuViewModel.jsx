@@ -53,25 +53,16 @@ export class JutsuViewModel {
         this.createdBy
       );
 
-      try {
-        const data = await this.createJutsuUseCase.execute(jutsu);
-        console.log(JSON.stringify(data));
-
-        runInAction(() => {
-          if (data != null) this.isValid = true;
-        });
-      } catch (err) {
-        runInAction(() => {
-          this.error = err.message || "Error al crear el Jutsu";
-        });
+      const data = await this.createJutsuUseCase.execute(jutsu);
+      if (data) {
+        this.fetchJutsus();
       }
-    } else {
-      this.error = "Todos los campos son obligatorios";
     }
-  }
+  } // Aquí cerramos correctamente el método doCreateJutsu
 
   async fetchJutsus() {
     try {
+      const jutsuRepository = new JutsuRepository();
       const data = await this.jutsuRepository.getAll();
 
       runInAction(() => {

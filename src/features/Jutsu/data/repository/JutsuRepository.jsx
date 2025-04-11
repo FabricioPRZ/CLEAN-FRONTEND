@@ -12,7 +12,7 @@ export class JutsuRepository {
             jutsuData.created_by
         );
 
-        const response = await fetch('http://100.29.19.172:8080/v1/jutsus', {
+        const response = await fetch('http://localhost:8080/v1/jutsus', {
             method: 'POST',
             body: JSON.stringify({
                 name: jutsu.name,
@@ -35,7 +35,7 @@ export class JutsuRepository {
 
     async getAll() {
         try {
-            const response = await fetch('http://100.29.19.172:8080/v1/jutsus', {
+            const response = await fetch('http://localhost:8080/v1/jutsus', {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
